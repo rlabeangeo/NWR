@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<Envelope ovf:version="1.0" xml:lang="en-US" xmlns="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vbox="http://www.virtualbox.org/ovf/machine">
+  <References>
+    <File ovf:id="file1" ovf:href="MMServer-disk001.vmdk"/>
+  </References>
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+    <Disk ovf:capacity="85899345920" ovf:diskId="vmdisk1" ovf:fileRef="file1" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized" vbox:uuid="c1bc831b-75fa-4d8f-adf1-eeb261a487cb"/>
+  </DiskSection>
+  <NetworkSection>
+    <Info>Logical networks used in the package</Info>
+    <Network ovf:name="HostOnly">
+      <Description>Logical network used by this appliance.</Description>
+    </Network>
+    <Network ovf:name="NAT">
+      <Description>Logical network used by this appliance.</Description>
+    </Network>
+  </NetworkSection>
+  <VirtualSystem ovf:id="MMServer">
+    <Info>A virtual machine</Info>
+    <OperatingSystemSection ovf:id="120">
+      <Info>The kind of installed guest operating system</Info>
+      <Description>Windows10_64</Description>
+      <vbox:OSType ovf:required="false">Windows10_64</vbox:OSType>
+    </OperatingSystemSection>
+    <VirtualHardwareSection>
+      <Info>Virtual hardware requirements for a virtual machine</Info>
+      <System>
+        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+        <vssd:InstanceID>0</vssd:InstanceID>
+        <vssd:VirtualSystemIdentifier>MMServer</vssd:VirtualSystemIdentifier>
+        <vssd:VirtualSystemType>virtualbox-2.2</vssd:VirtualSystemType>
+      </System>
+      <Item>
+        <rasd:Caption>2 virtual CPU</rasd:Caption>
+        <rasd:Description>Number of virtual CPUs</rasd:Description>
+        <rasd:ElementName>2 virtual CPU</rasd:ElementName>
+        <rasd:InstanceID>1</rasd:InstanceID>
+        <rasd:ResourceType>3</rasd:ResourceType>
+        <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+        <rasd:Caption>8192 MB of memory</rasd:Caption>
+        <rasd:Description>Memory Size</rasd:Description>
+        <rasd:ElementName>8192 MB of memory</rasd:ElementName>
+        <rasd:InstanceID>2</rasd:InstanceID>
+        <rasd:ResourceType>4</rasd:ResourceType>
+        <rasd:VirtualQuantity>8192</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:Address>0</rasd:Address>
+        <rasd:Caption>sataController0</rasd:Caption>
+        <rasd:Description>SATA Controller</rasd:Description>
+        <rasd:ElementName>sataController0</rasd:ElementName>
+        <rasd:InstanceID>3</rasd:InstanceID>
+        <rasd:ResourceSubType>AHCI</rasd:ResourceSubType>
+        <rasd:ResourceType>20</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>3</rasd:AddressOnParent>
+        <rasd:AutomaticAllocation>false</rasd:AutomaticAllocation>
+        <rasd:Caption>sound</rasd:Caption>
+        <rasd:Description>Sound Card</rasd:Description>
+        <rasd:ElementName>sound</rasd:ElementName>
+        <rasd:InstanceID>4</rasd:InstanceID>
+        <rasd:ResourceSubType>ensoniq1371</rasd:ResourceSubType>
+        <rasd:ResourceType>35</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+        <rasd:Caption>disk1</rasd:Caption>
+        <rasd:Description>Disk Image</rasd:Description>
+        <rasd:ElementName>disk1</rasd:ElementName>
+        <rasd:HostResource>/disk/vmdisk1</rasd:HostResource>
+        <rasd:InstanceID>5</rasd:InstanceID>
+        <rasd:Parent>3</rasd:Parent>
+        <rasd:ResourceType>17</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+        <rasd:Caption>Ethernet adapter on 'NAT'</rasd:Caption>
+        <rasd:Connection>NAT</rasd:Connection>
+        <rasd:ElementName>Ethernet adapter on 'NAT'</rasd:ElementName>
+        <rasd:InstanceID>6</rasd:InstanceID>
+        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+        <rasd:ResourceType>10</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+        <rasd:Caption>Ethernet adapter on 'HostOnly'</rasd:Caption>
+        <rasd:Connection>HostOnly</rasd:Connection>
+        <rasd:ElementName>Ethernet adapter on 'HostOnly'</rasd:ElementName>
+        <rasd:InstanceID>7</rasd:InstanceID>
+        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+        <rasd:ResourceType>10</rasd:ResourceType>
+      </Item>
+    </VirtualHardwareSection>
+    <vbox:Machine ovf:required="false" version="1.19-linux" uuid="{1303ae00-9c98-43c9-9cd9-d3b082fe9fc5}" name="MMServer" OSType="Windows10_64" snapshotFolder="Snapshots" lastStateChange="2024-08-30T17:40:30Z">
+      <ovf:Info>Complete VirtualBox machine configuration in VirtualBox format</ovf:Info>
+      <ExtraData>
+        <ExtraDataItem name="GUI/AutoresizeGuest" value="false"/>
+        <ExtraDataItem name="GUI/LastCloseAction" value="PowerOff"/>
+        <ExtraDataItem name="GUI/LastNormalWindowPosition" value="807,201,1024,816,max"/>
+        <ExtraDataItem name="GUI/MenuBar/Enabled" value="false"/>
+      </ExtraData>
+      <Hardware>
+        <CPU count="2">
+          <PAE enabled="false"/>
+          <LongMode enabled="true"/>
+          <HardwareVirtExLargePages enabled="true"/>
+        </CPU>
+        <Memory RAMSize="8192"/>
+        <HID Pointing="USBTablet"/>
+        <Display controller="VBoxSVGA" VRAMSize="128"/>
+        <BIOS>
+          <IOAPIC enabled="true"/>
+          <SmbiosUuidLittleEndian enabled="true"/>
+        </BIOS>
+        <USB>
+          <Controllers>
+            <Controller name="XHCI" type="XHCI"/>
+          </Controllers>
+          <DeviceFilters>
+            <DeviceFilter name="Generic Mass Storage [0002]" active="true" vendorId="6557" productId="223b" revision="0002" manufacturer="Generic" product="Mass Storage" serialNumber="9B7AD24A" port="0001" remote="0"/>
+          </DeviceFilters>
+        </USB>
+        <Network>
+          <Adapter slot="0" enabled="true" MACAddress="0800275AD383" type="82540EM">
+            <NAT localhost-reachable="true">
+              <Forwarding name="MM2" proto="1" hostport="6000" guestport="6000"/>
+              <Forwarding name="MMUDP" proto="0" hostport="6200" guestport="6200"/>
+              <Forwarding name="Mimcromine" proto="1" hostport="6200" guestport="6200"/>
+              <Forwarding name="SSH" proto="1" hostport="2222" guestport="22"/>
+            </NAT>
+          </Adapter>
+          <Adapter slot="1" enabled="true" promiscuousModePolicy="AllowAll" type="82540EM">
+            <DisabledModes>
+              <NAT localhost-reachable="true"/>
+              <InternalNetwork name="intnet"/>
+              <NATNetwork name="NatNetwork"/>
+            </DisabledModes>
+            <HostOnlyInterface name="vboxnet0"/>
+          </Adapter>
+        </Network>
+        <AudioAdapter controller="HDA" useDefault="true" driver="ALSA" enabled="true" enabledOut="true"/>
+        <Clipboard mode="Bidirectional"/>
+        <DragAndDrop mode="Bidirectional"/>
+        <GuestProperties>
+          <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="en_US" timestamp="1725040577300128000" flags="RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxRev" value="163906" timestamp="1725039630597434002" flags="TRANSIENT, RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxVer" value="7.0.20" timestamp="1725039630597434000" flags="TRANSIENT, RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxVerExt" value="7.0.20" timestamp="1725039630597434001" flags="TRANSIENT, RDONLYGUEST"/>
+        </GuestProperties>
+        <StorageControllers>
+          <StorageController name="SATA" type="AHCI" PortCount="2" useHostIOCache="false" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3">
+            <AttachedDevice type="HardDisk" hotpluggable="false" port="0" device="0">
+              <Image uuid="{c1bc831b-75fa-4d8f-adf1-eeb261a487cb}"/>
+            </AttachedDevice>
+            <AttachedDevice passthrough="false" type="DVD" hotpluggable="false" port="1" device="0">
+              <Image uuid="{0c5a0f8b-a118-4a78-9b61-baa30c3ea882}"/>
+            </AttachedDevice>
+          </StorageController>
+        </StorageControllers>
+      </Hardware>
+    </vbox:Machine>
+  </VirtualSystem>
+</Envelope>
